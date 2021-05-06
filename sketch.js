@@ -24,7 +24,15 @@ function setup() {
 
 function draw() {
   background(46,139,87); 
-  
+
+  if(foods !== undefined){
+    textSize(30);
+  fill (random(0,255),random(0,255),random(0,255))
+  text("Food remaining: "+foods,300,250);
+  fill("black");
+  text("Note : Press the up arrow key to feed the feed Bruno",30,150);
+    }
+
   if (keyWentDown(UP_ARROW)){
     writeStock(foods);
     dog.addImage(dogHappy);
@@ -35,17 +43,12 @@ function draw() {
   }
 
   drawSprites();
-
-  textSize(30);
-  fill (random(0,255),random(0,255),random(0,255))
-  text("Food remaining: "+foods,300,250);
-  fill("black");
-  text("Note : Press the up arrow key to feed the feed Bruno",30,150);
-  
+ 
 }
 
 function readStock(data){
   foods = data.val();
+  console.log(foods)
 }
 
 function writeStock(x){
